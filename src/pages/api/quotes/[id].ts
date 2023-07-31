@@ -5,16 +5,22 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  const { id } = req.query;
+
   if (req.method !== "GET")
     return res
       .status(400)
       .json({ message: `Method ${req.method} not allowed. Please use GET` });
 
-  const quotes = await prisma.quote.findMany();
+  const quote = await prisma.quote.findUnique({
+    where: {
+      id: parseInt(id as string),
+    },
+  });
 
-  const randomIndex = Math.floor(Math.random() * quotes.length);
+  if (!quote) {
+    return res.status(404).json({ message: "Quote not found" });
+  }
 
-  const randomQuote = quotes[randomIndex];
-
-  res.status(200).json({ randomQuote });
+  res.status(200).json({ quote });
 }
