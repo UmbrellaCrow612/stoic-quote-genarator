@@ -12,5 +12,5 @@ export default async function handler(
 
   const quotes = await prisma.quote.findMany();
 
-  res.status(200).json({ quotes });
+  res.status(200).json(quotes);
 }

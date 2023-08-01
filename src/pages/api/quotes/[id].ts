@@ -22,5 +22,5 @@ export default async function handler(
     return res.status(404).json({ message: "Quote not found" });
   }
 
-  res.status(200).json({ quote });
+  res.status(200).json(quote);
 }

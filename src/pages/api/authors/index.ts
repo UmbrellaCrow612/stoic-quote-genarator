@@ -12,5 +12,5 @@ export default async function handler(
 
   const authors = await prisma.author.findMany();
 
-  res.status(200).json({ authors });
+  res.status(200).json(authors);
 }

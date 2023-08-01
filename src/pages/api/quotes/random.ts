@@ -16,5 +16,5 @@ export default async function handler(
 
   const randomQuote = quotes[randomIndex];
 
-  res.status(200).json({ randomQuote });
+  res.status(200).json(randomQuote);
 }
