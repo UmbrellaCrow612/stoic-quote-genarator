@@ -1,5 +1,4 @@
 Rest API design spec
-
 1. **Get a Random Stoic Quote**
 
    - Endpoint: `GET /quotes/random`
