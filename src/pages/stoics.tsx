@@ -1,3 +1,4 @@
+import LoadingResultCard from "@/components/LoadingResultCard";
 import SearchResultCard from "@/components/SearchResultCard";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
@@ -15,6 +16,7 @@ export default function Page() {
       </div>
       <div className="flex-grow space-y-4 overflow-auto">
         <SearchResultCard />
+        <LoadingResultCard />
         <SearchResultCard />
         <SearchResultCard />
         <SearchResultCard />
