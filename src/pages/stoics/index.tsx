@@ -17,7 +17,7 @@ export default function Page() {
           disabled={loading}
         />
       </div>
-      <div className="flex-grow space-y-4 overflow-auto">
+      <div className="flex flex-col flex-grow gap-4 px-2 py-1 overflow-auto">
         <SearchResultCard />
         <LoadingResultCard /> {/* Render 10 dummy ones loading ? etc */}
         <SearchResultCard />

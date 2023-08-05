@@ -1,10 +1,11 @@
+import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Card } from "./ui/card";
 
 export default function SearchResultCard() {
   return (
-    <>
-      <Card className="flex items-center gap-4 p-4">
+    <Link href="/stoics/1">
+      <Card className="flex items-center gap-4 p-4 cursor-pointer">
         <Avatar>
           <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
           <AvatarFallback>CN</AvatarFallback>
@@ -15,6 +16,6 @@ export default function SearchResultCard() {
           error of his ways and repealed the joke tax. lorem100
         </p>
       </Card>
-    </>
+    </Link>
   );
 }
