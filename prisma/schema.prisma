@@ -11,6 +11,7 @@ datasource db {
 model Author {
   id                Int     @id @default(autoincrement())
   profilePictureUrl String
+  description       String // be in search card
   biography         String
   name              String
   quotes            Quote[]
