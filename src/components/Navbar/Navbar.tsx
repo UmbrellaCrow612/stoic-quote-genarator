@@ -18,8 +18,12 @@ export default function Navbar() {
           >
             <Link href="/stoics">Stoics</Link>
           </Button>
-          <Button variant={"outline"} asChild className="">
-            <Link href="/">Quotes</Link>
+          <Button
+            variant={pathname === "/quotes" ? "default" : "outline"}
+            asChild
+            className=""
+          >
+            <Link href="/quotes">Quotes</Link>
           </Button>
         </div>
       </nav>
