@@ -10,7 +10,11 @@ export default async function handler(
       .status(400)
       .json({ message: `Method ${req.method} not allowed. Please use GET` });
 
-  const quotes = await prisma.quote.findMany();
+  const quotes = await prisma.quote.findMany({
+    include: {
+      Author: true,
+    },
+  });
 
   const randomIndex = Math.floor(Math.random() * quotes.length);
 

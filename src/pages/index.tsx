@@ -1,11 +1,18 @@
+import useSWR from "swr";
+
 export default function Home() {
+  const { data, error, isLoading, isValidating, mutate } =
+    useSWR(`/api/quotes/random`);
+
   return (
-    <section className="min-h-screen max-w-screen-xl mx-auto px-4 xl:px-0 flex items-center justify-center text-center flex-col gap-4">
+    <section className="flex flex-col items-center justify-center max-w-screen-xl min-h-screen gap-4 px-4 mx-auto text-center xl:px-0">
       {/* Animate in and fade in */}
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-        &quot;Taxing Laughter: The Joke Tax Chronicles&quot;
+      <h1 className="text-4xl font-extrabold tracking-tight scroll-m-20 lg:text-5xl">
+        {isLoading ? <>Loading</> : <>&quot;{data.text}&quot;</>}
       </h1>
-      <p className="text-xl text-muted-foreground">- Marcus</p>
+      <p className="text-xl text-muted-foreground">
+        - {isLoading ? <>Loading</> : <>&quot;{data.Author.name}&quot;</>}
+      </p>
     </section>
   );
 }
